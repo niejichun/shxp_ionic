@@ -1,0 +1,19 @@
+{
+  "name": "shxp_ionic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niejichun/shxp_ionic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niejichun/shxp_ionic/issues"
+  },
+  "homepage": "https://github.com/niejichun/shxp_ionic#readme"
+}
