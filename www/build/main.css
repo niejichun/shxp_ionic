@@ -3815,6 +3815,10 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+ion-content {
+  background-color: #e5e6e8 !important;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;
@@ -25672,4 +25676,9 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+page-more .card {
+  width: 100%;
+  margin: 0;
 }
