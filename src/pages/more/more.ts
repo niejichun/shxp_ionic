@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { Storage } from '@ionic/storage'
 /**
  * Generated class for the MorePage page.
  *
@@ -14,21 +15,37 @@ import { LoginPage } from '../login/login';
   templateUrl: 'more.html',
 })
 export class MorePage {
-
+  public notLogin: boolean = true
+  public logined: boolean = false
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public navParams: NavParams,
-    public modalCtrl: ModalController
-    ) {
+    public modalCtrl: ModalController,
+    public storage: Storage
+  ) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MorePage');
-  }
 
-  showModal(){
+
+  showModal() {
     let modal = this.modalCtrl.create(LoginPage)
     modal.present()
   }
 
+  ionViewDidEnter() {
+    console.log('ionViewDidEnter MorePage');
+    this.loadUserPage()
+  }
+
+  loadUserPage() {
+    this.storage.get('UserId').then((val) => {
+      if (val) {
+        this.notLogin = false
+         this.logined = true
+      }else{
+        this.notLogin = true
+        this.logined = false
+      }
+    })
+  }
 }

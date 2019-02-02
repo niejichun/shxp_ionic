@@ -14,7 +14,9 @@ import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
+import { HttpModule } from '@angular/http';
 
+import { IonicStorageModule } from '@ionic/storage'
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +30,9 @@ import { RestProvider } from '../providers/rest/rest';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,8 +48,8 @@ import { RestProvider } from '../providers/rest/rest';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     RestProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
