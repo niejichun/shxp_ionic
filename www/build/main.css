@@ -3819,6 +3819,18 @@ ion-content {
   background-color: #e5e6e8 !important;
 }
 
+.marginTop {
+  margin-top: 10px;
+}
+
+.marginbottom {
+  margin-bottom: 10px !important;
+}
+
+.paddingTop {
+  padding-top: 0px !important;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;

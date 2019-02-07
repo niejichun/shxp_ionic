@@ -10,6 +10,15 @@ import { NotificationPage } from '../pages/notification/notification';
 import { MorePage } from '../pages/more/more';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { UserPage } from '../pages/user/user'
+import { HeadfacePage } from '../pages/headface/headface'
+
+//导入四个外部加载进来的组件，具体的安装方法在 09-01 章节
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -26,13 +35,18 @@ import { IonicStorageModule } from '@ionic/storage'
     ChatPage,
     NotificationPage,
     MorePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    UserPage,
+    HeadfacePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
-    HttpModule,
-    IonicStorageModule.forRoot()
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '返回'
+    }),
+    HttpModule,//全局导入HTTP
+    IonicStorageModule.forRoot()//全局导入storage
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -43,13 +57,20 @@ import { IonicStorageModule } from '@ionic/storage'
     ChatPage,
     NotificationPage,
     MorePage,
-    LoginPage
+    LoginPage,
+    RegisterPage,
+    UserPage,
+    HeadfacePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    RestProvider
+    RestProvider,
+    File,
+    Transfer,
+    FilePath,
+    Camera
   ]
 })
 export class AppModule { }

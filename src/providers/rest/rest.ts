@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Loading, LoadingController,Toast,ToastController } from 'ionic-angular'
+import { Loading, LoadingController, Toast, ToastController } from 'ionic-angular'
 
 @Injectable()
 export class RestProvider {
@@ -28,7 +28,16 @@ export class RestProvider {
     return this.getUrlReturn(`${this.apiUrlLogin}?mobile=${mobile}&password=${password}`)
   }
 
+  register(password: string, mobile: string, nickName: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlRegister}?mobile=${mobile}&password=${password}&nickName=${nickName}`)
+  }
+  getUserInfo(userId: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlUserInfo}?userId=${userId}`)
+  }
 
+  updateNickName(UserId: string, nickName: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlUpdateNickName}?userId=${UserId}&nickname=${nickName}`)
+  }
   /**
    * 全局获取 HTTP 请求的方法
    * @Parry
