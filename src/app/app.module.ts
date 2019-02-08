@@ -15,6 +15,8 @@ import { UserPage } from '../pages/user/user'
 import { HeadfacePage } from '../pages/headface/headface'
 import { QuestionPage } from '../pages/question/question'
 import { DetailsPage } from '../pages/details/details'
+import { AnswerPage } from '../pages/answer/answer'
+
 //导入四个外部加载进来的组件
 import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
@@ -41,7 +43,8 @@ import { IonicStorageModule } from '@ionic/storage'
     UserPage,
     HeadfacePage,
     QuestionPage,
-    DetailsPage
+    DetailsPage,
+    AnswerPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { IonicStorageModule } from '@ionic/storage'
     UserPage,
     HeadfacePage,
     QuestionPage,
-    DetailsPage
+    DetailsPage,
+    AnswerPage
   ],
   providers: [
     StatusBar,

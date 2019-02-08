@@ -12,12 +12,12 @@ import { AnswerPage } from "../answer/answer";
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
 @Component({
   selector: 'page-details',
   templateUrl: 'details.html',
 })
-export class DetailsPage extends BaseUI{
+export class DetailsPage extends BaseUI {
   id: string;
   userId: string;
   question: string[];
@@ -43,19 +43,20 @@ export class DetailsPage extends BaseUI{
   loadQuestion(id) {
     this.storage.get('UserId').then((val) => {
       if (val) {
-        console.log('val',val)
+        console.log('val', val)
         this.userId = val;
         var loading = super.showLiading(this.loadingCtrl, "加载中...");
         this.rest.getQuestionWithUser(id, val)
           .subscribe(
-          q => {
-            this.question = q;
-            this.answers = q["Answers"];
-            this.isFavourite = q["IsFavourite"];
-            this.isMyQuestion = (q["OwnUserId"] == val);
-            loading.dismissAll();
-          },
-          error => this.errorMessage = <any>error);
+            q => {
+              this.question = q;
+              console.log(this.question)
+              this.answers = q["Answers"];
+              this.isFavourite = q["IsFavourite"];
+              this.isMyQuestion = (q["OwnUserId"] == val);
+              loading.dismissAll();
+            },
+            error => this.errorMessage = <any>error);
       }
     });
   }
@@ -64,13 +65,18 @@ export class DetailsPage extends BaseUI{
     var loading = super.showLiading(this.loadingCtrl, "请求中...");
     this.rest.saveFavourite(this.id, this.userId)
       .subscribe(
-      f => {
-        if (f["Status"] == "OK") {
-          loading.dismiss();
-          super.showToast(this.toastCtrl, this.isFavourite ? "取消关注成功。" : "关注问题成功。");
-          this.isFavourite = !this.isFavourite;
-        }
-      },
-      error => this.errorMessage = <any>error);
+        f => {
+          if (f["Status"] == "OK") {
+            loading.dismiss();
+            super.showToast(this.toastCtrl, this.isFavourite ? "取消关注成功。" : "关注问题成功。");
+            this.isFavourite = !this.isFavourite;
+          }
+        },
+        error => this.errorMessage = <any>error);
+  }
+
+  showAnswerPage() {
+    let modal = this.modalCtrl.create(AnswerPage, { id: this.id })
+    modal.present()
   }
 }
