@@ -38,6 +38,22 @@ export class RestProvider {
   updateNickName(UserId: string, nickName: string): Observable<string[]> {
     return this.getUrlReturn(`${this.apiUrlUpdateNickName}?userId=${UserId}&nickname=${nickName}`)
   }
+
+  saveQuestion(UserId: string, title: string, content: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlQuestionSave}?userId=${UserId}&title=${title}&content=${content}`)
+  }
+
+  getFeeds(): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlFeeds}`)
+  }
+
+  getQuestionWithUser(questionId, userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlGetQuestionWithUser + "?id=" + questionId + "&userid=" + userId);
+  }
+
+  saveFavourite(questionId, userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlSaveFavourite + "?questionid=" + questionId + "&userid=" + userId);
+  }
   /**
    * 全局获取 HTTP 请求的方法
    * @Parry

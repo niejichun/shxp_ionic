@@ -12,7 +12,7 @@ import { UserPage } from '../user/user'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+// @IonicPage()
 @Component({
   selector: 'page-more',
   templateUrl: 'more.html',
@@ -39,7 +39,7 @@ export class MorePage extends BaseUI {
 
   showModal() {
     let modal = this.modalCtrl.create(LoginPage)
-    modal.onDidDismiss(()=>{//modal关闭后，刷新父页面
+    modal.onDidDismiss(() => {//modal关闭后，刷新父页面
       this.loadUserPage()
     })
     modal.present()
