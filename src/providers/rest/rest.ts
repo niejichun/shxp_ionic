@@ -54,6 +54,21 @@ export class RestProvider {
   saveFavourite(questionId, userId): Observable<string[]> {
     return this.getUrlReturn(this.apiUrlSaveFavourite + "?questionid=" + questionId + "&userid=" + userId);
   }
+
+  answer(userId, questionId, content): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlAnswer + "?userid=" + userId + "&questionid=" + questionId + "&content=" + content);
+  }
+
+  getQuestions(): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlQuestionList);
+  }
+  getUserNotifications(userId): Observable<string[]> {
+    return this.getUrlReturn(this.apiUrlUserNotifications + "?userid=" + userId);
+  }
+  getUserQuestionList(userId, type): Observable<string[]> {
+    return this.getUrlReturn(this.apiGetUserQuestionList + "?userid=" + userId + "&type=" + type);
+  }
+
   /**
    * 全局获取 HTTP 请求的方法
    * @Parry

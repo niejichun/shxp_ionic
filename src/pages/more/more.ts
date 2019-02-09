@@ -5,6 +5,10 @@ import { Storage } from '@ionic/storage'
 import { BaseUI } from '../../common/baseui'
 import { RestProvider } from '../../providers/rest/rest'
 import { UserPage } from '../user/user'
+import { UserdatalistPage } from '../userdatalist/userdatalist'
+import { SettingsProvider } from '../../providers/settings/settings';
+import { ScanPage } from '../scan/scan'
+import { VersionsPage } from '../versions/versions'
 /**
  * Generated class for the MorePage page.
  *
@@ -12,7 +16,7 @@ import { UserPage } from '../user/user'
  * Ionic pages and navigation.
  */
 
-// @IonicPage()
+// @IonicPage()Î
 @Component({
   selector: 'page-more',
   templateUrl: 'more.html',
@@ -21,8 +25,9 @@ export class MorePage extends BaseUI {
   public notLogin: boolean = true
   public logined: boolean = false
   headface: string
-  userinfo: any
+  userinfo: string[];
   errorMessage: any
+  selectedTheme: string
 
   constructor(
     public navCtrl: NavController,
@@ -30,9 +35,11 @@ export class MorePage extends BaseUI {
     public modalCtrl: ModalController,
     public storage: Storage,
     public loadCtrl: LoadingController,
-    public rest: RestProvider
+    public rest: RestProvider,
+    private settings: SettingsProvider
   ) {
     super()
+    this.settings.getActiveTheme().subscribe(val => this.selectedTheme = val);
   }
 
 
@@ -45,7 +52,7 @@ export class MorePage extends BaseUI {
     modal.present()
   }
 
-  ionViewDidEnter() {
+  ionViewDidLoad() {
     console.log('ionViewDidEnter MorePage');
     this.loadUserPage()
   }
@@ -76,5 +83,26 @@ export class MorePage extends BaseUI {
     this.navCtrl.push(UserPage, {
       ...this.userinfo
     })
+  }
+
+  gotoDataList(type) {
+    this.navCtrl.push(UserdatalistPage, { "dataType": type })
+  }
+
+  toggleChangeTheme() {
+    if (this.selectedTheme === 'dark-theme') {
+      this.settings.setActiveTheme('light-theme');
+    }
+    else {
+      this.settings.setActiveTheme('dark-theme');
+    }
+  }
+
+  gotoScanQRCode() {
+    this.navCtrl.push(ScanPage, null, { "animate": false });
+  }
+
+  gotoVersions() {
+    this.navCtrl.push(VersionsPage);
   }
 }

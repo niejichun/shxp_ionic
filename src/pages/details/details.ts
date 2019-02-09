@@ -77,6 +77,10 @@ export class DetailsPage extends BaseUI {
 
   showAnswerPage() {
     let modal = this.modalCtrl.create(AnswerPage, { id: this.id })
+    //关闭后的回调
+    modal.onDidDismiss(() => {
+      this.loadQuestion(this.id);
+    });
     modal.present()
   }
 }
