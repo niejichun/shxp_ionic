@@ -27,6 +27,7 @@ export class EmojipickerComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
+    console.log('writeValue',obj)
     this.content = obj;
   }
   registerOnChange(fn: any): void {

@@ -2425,6 +2425,7 @@ var EmojipickerComponent = (function () {
         this.emojiArray = emojiProvider.getEmojis();
     }
     EmojipickerComponent.prototype.writeValue = function (obj) {
+        console.log('writeValue', obj);
         this.content = obj;
     };
     EmojipickerComponent.prototype.registerOnChange = function (fn) {
@@ -2443,14 +2444,15 @@ var EmojipickerComponent = (function () {
     };
     EmojipickerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'emojipicker',template:/*ion-inline-start:"/Users/niejichun/WebstormProjects/shxp_ionic/src/components/emojipicker/emojipicker.html"*/`<!-- Generated template for the EmojipickerComponent component -->\n<div class="emoji-picker">\n  <div class="emoji-items">\n    <ion-slides pager>\n      <ion-slide *ngFor="let items of emojiArray">\n        <span class="emoji-item" (click)="setValue(item)" *ngFor="let item of items">\n          {{item}}\n        </span>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</div>\n`/*ion-inline-end:"/Users/niejichun/WebstormProjects/shxp_ionic/src/components/emojipicker/emojipicker.html"*/,
+            selector: 'emojipicker',template:/*ion-inline-start:"/Users/niejichun/WebstormProjects/shxp_ionic/src/components/emojipicker/emojipicker.html"*/`<div class="emoji-picker">\n  <div class="emoji-items">\n    <ion-slides pager>\n      <ion-slide *ngFor="let items of emojiArray">\n        <span class="emoji-item" (click)="setValue(item)" *ngFor="let item of items">\n          {{item}}\n        </span>\n      </ion-slide>\n    </ion-slides>\n  </div>\n</div>\n`/*ion-inline-end:"/Users/niejichun/WebstormProjects/shxp_ionic/src/components/emojipicker/emojipicker.html"*/,
             providers: [EMOJI_ACCESSOR]
         })
         // 实现接口 ControlValueAccessor
         ,
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_emoji_emoji__["a" /* EmojiProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__providers_emoji_emoji__["a" /* EmojiProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_emoji_emoji__["a" /* EmojiProvider */]) === "function" && _a || Object])
     ], EmojipickerComponent);
     return EmojipickerComponent;
+    var _a;
 }());
 
 //# sourceMappingURL=emojipicker.js.map
