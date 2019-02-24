@@ -1,11 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { Events } from 'ionic-angular';
-import { IonicPage, NavController, NavParams, Content, TextInput } from 'ionic-angular';
+import {  NavController, NavParams, Content, TextInput } from 'ionic-angular';
 import { ChatserviceProvider, ChatMessage } from '../../providers/chatservice/chatservice';
 import { Storage } from '@ionic/storage';
 import { RestProvider } from '../../providers/rest/rest';
 
-@IonicPage()
+
 @Component({
   selector: 'page-chatdetails',
   templateUrl: 'chatdetails.html',

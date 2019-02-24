@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Loading, LoadingController, Toast, ToastController } from 'ionic-angular'
+// import { Loading, LoadingController, Toast, ToastController } from 'ionic-angular'
 
 @Injectable()
 export class RestProvider {
@@ -18,7 +18,7 @@ export class RestProvider {
   private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
   private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
   private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
-  private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
+  // private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
   private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
   private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
   private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";

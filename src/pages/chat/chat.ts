@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  NavController, NavParams } from 'ionic-angular';
 import { ChatdetailsPage } from '../chatdetails/chatdetails';
 /**
  * Generated class for the ChatPage page.
@@ -8,7 +8,7 @@ import { ChatdetailsPage } from '../chatdetails/chatdetails';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',

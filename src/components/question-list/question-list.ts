@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ModalController, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController, ToastController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
@@ -35,18 +35,18 @@ export class QuestionListComponent extends BaseUI {
   }
 
   //这里没有 ionViewDidLoad 生命周期的函数
-  ngAfterContentInit(){
+  ngAfterContentInit() {
     this.storage.get('UserId').then((val) => {
       if (val != null) {
         //加载用户数据
         var loading = super.showLiading(this.loadCtrl, "加载中...");
-        this.rest.getUserQuestionList(val,this.dataSourceType)
+        this.rest.getUserQuestionList(val, this.dataSourceType)
           .subscribe(
-          q => {
-            this.questions = q;
-            loading.dismissAll();
-          },
-          error => this.errorMessage = <any>error);
+            q => {
+              this.questions = q;
+              loading.dismissAll();
+            },
+            error => this.errorMessage = <any>error);
       }
     });
   }

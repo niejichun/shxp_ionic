@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, LoadingController, ToastController } from 'ionic-angular';
 import { BaseUI } from '../../common/baseui'
 import { RestProvider } from '../../providers/rest/rest'
 import { Storage } from '@ionic/storage'
@@ -11,7 +11,7 @@ import { RegisterPage } from '../register/register'
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',

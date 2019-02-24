@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AppVersion } from '@ionic-native/app-version';
 
-@IonicPage()
+
 @Component({
   selector: 'page-versions',
   templateUrl: 'versions.html',
